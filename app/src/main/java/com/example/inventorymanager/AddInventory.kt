@@ -8,6 +8,4 @@ class AddInventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_inventory)
     }
-
-    fun 
 }
