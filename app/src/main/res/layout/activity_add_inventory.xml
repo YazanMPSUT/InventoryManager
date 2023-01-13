@@ -191,7 +191,12 @@
         android:id="@+id/addButton"
         android:layout_width="110dp"
         android:layout_height="415dp"
+        android:layout_marginStart="40dp"
         android:text="Add"
-        tools:layout_editor_absoluteX="273dp"
-        tools:layout_editor_absoluteY="212dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.542"
+        app:layout_constraintStart_toEndOf="@+id/ET3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.588" />
 </androidx.constraintlayout.widget.ConstraintLayout>
