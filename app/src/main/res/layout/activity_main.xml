@@ -36,9 +36,9 @@
             android:layout_height="24dp" />
 
         <Button
-            android:id="@+id/btnToDo"
+            android:id="@+id/btnViewActivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Placeholder" />
+            android:text="View Inventory" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
