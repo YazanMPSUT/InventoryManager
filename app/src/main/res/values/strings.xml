@@ -2,4 +2,6 @@
     <string name="app_name">InventoryManager</string>
     <string name="buy_items">Buy Items</string>
     <string name="manage_inventory">Manage Inventory</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

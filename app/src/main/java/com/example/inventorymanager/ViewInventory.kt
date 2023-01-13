@@ -1,11 +1,11 @@
 package com.example.inventorymanager
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 
-class DeleteFromIneventory : AppCompatActivity() {
+class ViewInventory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_delete_from_inventory)
-}
+        setContentView(R.layout.activity_view_inventory)
+    }
 }

@@ -91,7 +91,7 @@ class InventoryProvider : ContentProvider(){
             }
         }
         if (sortOrder == null || sortOrder === "") {
-            /*** By default sort on student names*/
+            /*** By default sort on name*/
             sOrder = name
         }
         val c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder)

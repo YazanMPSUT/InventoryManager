@@ -7,177 +7,103 @@
     tools:context=".ManageInventory">
 
 
-    <TextView
-        android:id="@+id/TVa"
-        android:layout_width="337dp"
-        android:layout_height="64dp"
-        android:text="Inventory Manager"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.216"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
-
     <EditText
         android:id="@+id/pnameET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVa"
-        app:layout_constraintVertical_bias="0.113" />
+        app:layout_constraintVertical_bias="0.152" />
 
     <TextView
         android:id="@+id/TVb"
-        android:layout_width="147dp"
-        android:layout_height="31dp"
+        android:layout_width="179dp"
+        android:layout_height="41dp"
         android:text="Enter Product name"
         app:layout_constraintBottom_toTopOf="@+id/pnameET"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVa"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintVertical_bias="0.443" />
 
     <TextView
         android:id="@+id/TVc"
-        android:layout_width="143dp"
-        android:layout_height="27dp"
-        android:text="Enter product ID"
+        android:layout_width="167dp"
+        android:layout_height="37dp"
+        android:text="Enter change in quantity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pnameET"
-        app:layout_constraintVertical_bias="0.033" />
+        app:layout_constraintVertical_bias="0.07" />
 
     <EditText
-        android:id="@+id/pidET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/qtyChangeET"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
         android:text="ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVc"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.068" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="48dp"
+        android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/subBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="216dp"
+        android:text="Subtract"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/qtyChangeET"
+        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET"
+        app:layout_constraintVertical_bias="0.979" />
+
+    <Button
+        android:id="@+id/delItemBtn"
+        android:layout_width="340dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="137dp"
+        android:text="Delete Item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET" />
 
     <TextView
-        android:id="@+id/TVd"
-        android:layout_width="148dp"
-        android:layout_height="30dp"
-        android:text="Enter Buying price"
+        android:id="@+id/TVa"
+        android:layout_width="337dp"
+        android:layout_height="64dp"
+        android:text="Manage Inventory"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pidET"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintEnd_toEndOf="@+id/delItemBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/delItemBtn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.118" />
 
-    <EditText
-        android:id="@+id/ET3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:text="Buying price"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVd"
-        app:layout_constraintVertical_bias="0.035" />
-
-    <TextView
-        android:id="@+id/TVe"
-        android:layout_width="161dp"
-        android:layout_height="27dp"
-        android:text="Enter Selling price"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.064"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET3"
-        app:layout_constraintVertical_bias="0.069" />
-
-    <EditText
-        android:id="@+id/ET4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:text="Selling price"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVe"
-        app:layout_constraintVertical_bias="0.044" />
-
-    <EditText
-        android:id="@+id/ET5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Enter Suppliers Name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/TVf"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Suppliers name"
-        app:layout_constraintBottom_toTopOf="@+id/ET5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET4"
-        app:layout_constraintVertical_bias="0.794" />
-
-    <TextView
-        android:id="@+id/TVg"
-        android:layout_width="116dp"
-        android:layout_height="26dp"
-        android:text="Quantity"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET5"
-        app:layout_constraintVertical_bias="0.153" />
-
-    <EditText
-        android:id="@+id/ETd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"
-        android:minHeight="48dp"
-        android:text="Quantity Available"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVg"
-        app:layout_constraintVertical_bias="0.304" />
 </androidx.constraintlayout.widget.ConstraintLayout>
