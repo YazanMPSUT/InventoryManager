@@ -25,13 +25,24 @@ class DeleteDialogFragment : DialogFragment(R.layout.dialogfragment_delete){
             val nameET : EditText = view.findViewById(R.id.ddf_pnameET)
             val id = idET.text.toString()
             val name = nameET.text.toString()
-            Toast.makeText(context,"Item \"$name\" with id = $id has successfully been removed",
-                Toast.LENGTH_LONG).show()
-            dismiss()
-            ddl_ip.delete(InventoryProvider.CONTENT_URI,
-                InventoryProvider._id + " = " + id + " AND " +
-                        InventoryProvider.name + " = " + name
-                ,null);
+
+            try {
+                ddl_ip.delete(
+                    InventoryProvider.CONTENT_URI,
+                    InventoryProvider._id + " = " + id + " AND " +
+                            InventoryProvider.name + " = " + name, null
+                )
+                Toast.makeText(context,"Item \"$name\" with id = $id has successfully been removed",
+                    Toast.LENGTH_LONG).show()
+            }
+            catch(e:java.lang.Exception)
+            {
+                Toast.makeText(context,"ya fucked up", Toast.LENGTH_LONG).show()
+                e.printStackTrace()
+            }
+            finally {
+                dismiss()
+            }
         }
 
     }

@@ -14,7 +14,7 @@ import java.util.HashMap
 class InventoryProvider : ContentProvider(){
 
     companion object {
-        const val PROVIDER_NAME = "com.example.InventoryManager.InventoryProvider"
+        const val PROVIDER_NAME = "com.example.inventorymanager.InventoryProvider"
         const val URL = "content://" + PROVIDER_NAME + "/inventory"
         val CONTENT_URI = Uri.parse(URL)
 
@@ -27,12 +27,11 @@ class InventoryProvider : ContentProvider(){
         val quantity="quantity";
 
         private val INVENTORY_PROJECTION_MAP: HashMap<String, String>? = null
-        val INVENTORY = 1
-        val ITEM_ID = 2
-        val uriMatcher: UriMatcher? = null
-        val DATABASE_NAME = "store"
-        val INVENTORY_TABLE_NAME = "inventory"
-        val DATABASE_VERSION = 1
+        const val INVENTORY = 1
+        const val ITEM_ID = 2
+        const val DATABASE_NAME = "store"
+        const val INVENTORY_TABLE_NAME = "inventory"
+        const val DATABASE_VERSION = 1
         val CREATE_DB_TABLE = buildString {
         append("CREATE TABLE \"inventory\" (")
         append("\"${_id}\"INTEGER,\n")
@@ -44,11 +43,13 @@ class InventoryProvider : ContentProvider(){
         append("PRIMARY KEY(\"${_id}\")\n")
         append(");")
         }
-        private var sUriMatcher = UriMatcher(UriMatcher.NO_MATCH);
+
+        var uriMatcher : UriMatcher = UriMatcher(UriMatcher.NO_MATCH)
         init {
-            sUriMatcher.addURI(PROVIDER_NAME, "Inventory", INVENTORY);
-            sUriMatcher.addURI(PROVIDER_NAME, "Inventory/#", ITEM_ID);
+            uriMatcher!!.addURI(PROVIDER_NAME, INVENTORY_TABLE_NAME, INVENTORY);
+            uriMatcher!!.addURI(PROVIDER_NAME, "$INVENTORY_TABLE_NAME/*", ITEM_ID);
         }
+
     }
 
 
@@ -62,7 +63,6 @@ class InventoryProvider : ContentProvider(){
         }
 
         override fun onUpgrade(p0: SQLiteDatabase?, p1: Int, p2: Int) {
-            TODO("I don't think there's anything to do here but just in case")
         }
     }
 
