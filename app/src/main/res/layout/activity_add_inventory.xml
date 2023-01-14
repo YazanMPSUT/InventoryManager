@@ -27,7 +27,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
+        android:hint="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
@@ -60,19 +60,19 @@
         app:layout_constraintVertical_bias="0.033" />
 
     <EditText
-        android:id="@+id/qtyChangeET"
+        android:id="@+id/pidET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="ID"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVc"
-        app:layout_constraintVertical_bias="0.035" />
+        app:layout_constraintVertical_bias="0.018" />
 
     <TextView
         android:id="@+id/TVd"
@@ -83,18 +83,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.068"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET"
-        app:layout_constraintVertical_bias="0.06" />
+        app:layout_constraintTop_toBottomOf="@+id/pidET"
+        app:layout_constraintVertical_bias="0.033" />
 
     <EditText
-        android:id="@+id/ET3"
+        android:id="@+id/bpET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:ems="10"
-        android:inputType="number"
+        android:hint="Buying price"
+        android:inputType="number|numberDecimal"
         android:minHeight="48dp"
-        android:text="Buying price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -112,39 +112,37 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET3"
+        app:layout_constraintTop_toBottomOf="@+id/bpET"
         app:layout_constraintVertical_bias="0.066" />
 
     <EditText
-        android:id="@+id/ET4"
+        android:id="@+id/spET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"
+        android:hint="Selling price"
+        android:inputType="number|numberDecimal"
         android:minHeight="48dp"
-        android:text="Selling price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVe"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.073" />
 
     <EditText
-        android:id="@+id/ET5"
+        android:id="@+id/snET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="579dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="128dp"
         android:ems="10"
+        android:hint="Enter Suppliers Name"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Enter Suppliers Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TVf"
@@ -156,8 +154,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET4"
-        app:layout_constraintVertical_bias="0.794" />
+        app:layout_constraintTop_toBottomOf="@+id/spET"
+        app:layout_constraintVertical_bias="0.475" />
 
     <TextView
         android:id="@+id/TVg"
@@ -168,18 +166,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ET5"
+        app:layout_constraintTop_toBottomOf="@+id/snET"
         app:layout_constraintVertical_bias="0.153" />
 
     <EditText
-        android:id="@+id/ETd"
+        android:id="@+id/qtyET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="Quantity Available"
+        android:hint="Quantity Available"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
@@ -188,7 +186,7 @@
         app:layout_constraintVertical_bias="0.304" />
 
     <Button
-        android:id="@+id/addButton"
+        android:id="@+id/btnAdd"
         android:layout_width="110dp"
         android:layout_height="415dp"
         android:layout_marginStart="40dp"
@@ -196,7 +194,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toEndOf="@+id/ET3"
+        app:layout_constraintStart_toEndOf="@+id/bpET"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.588" />
 </androidx.constraintlayout.widget.ConstraintLayout>

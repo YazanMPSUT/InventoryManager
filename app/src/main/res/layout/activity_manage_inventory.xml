@@ -14,18 +14,19 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name"
+        android:hint="ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVa"
-        app:layout_constraintVertical_bias="0.152" />
+        app:layout_constraintVertical_bias="0.132" />
 
     <TextView
         android:id="@+id/TVb"
         android:layout_width="179dp"
         android:layout_height="41dp"
-        android:text="Enter Product name"
+        android:text="Enter Product ID"
         app:layout_constraintBottom_toTopOf="@+id/pnameET"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
@@ -42,68 +43,76 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pnameET"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <EditText
-        android:id="@+id/qtyChangeET"
+        android:id="@+id/pidET"
         android:layout_width="290dp"
         android:layout_height="52dp"
         android:ems="10"
         android:inputType="number"
         android:minHeight="48dp"
-        android:text="ID"
+        android:hint="Change in Quantity"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TVc"
         app:layout_constraintVertical_bias="0.068" />
 
     <Button
-        android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="48dp"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/subBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="216dp"
-        android:text="Subtract"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/qtyChangeET"
-        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET"
-        app:layout_constraintVertical_bias="0.979" />
-
-    <Button
-        android:id="@+id/delItemBtn"
-        android:layout_width="340dp"
+        android:id="@+id/btnShowDelFrag"
+        android:layout_width="325dp"
         android:layout_height="51dp"
-        android:layout_marginTop="137dp"
+        android:layout_marginTop="140dp"
         android:text="Delete Item"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET" />
+        app:layout_constraintTop_toBottomOf="@+id/pidET"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/TVa"
-        android:layout_width="337dp"
+        android:layout_width="325dp"
         android:layout_height="64dp"
         android:text="Manage Inventory"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/delItemBtn"
+        app:layout_constraintEnd_toEndOf="@+id/btnShowDelFrag"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/delItemBtn"
+        app:layout_constraintStart_toStartOf="@+id/btnShowDelFrag"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.118" />
+
+    <LinearLayout
+        android:layout_width="325dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="36dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnShowDelFrag"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pidET"
+        app:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/subBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtract" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

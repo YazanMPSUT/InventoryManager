@@ -10,11 +10,12 @@ import android.text.TextUtils
 import java.lang.IllegalArgumentException
 import java.util.HashMap
 
+@Suppress("UNUSED_EXPRESSION")
 class InventoryProvider : ContentProvider(){
 
     companion object {
-        val PROVIDER_NAME = "com.example.InventoryManager.InventoryProvider"
-        val URL = "content://" + PROVIDER_NAME + "/Inventory"
+        const val PROVIDER_NAME = "com.example.InventoryManager.InventoryProvider"
+        const val URL = "content://" + PROVIDER_NAME + "/inventory"
         val CONTENT_URI = Uri.parse(URL)
 
         //Columns
@@ -42,15 +43,15 @@ class InventoryProvider : ContentProvider(){
         append("\"${quantity}\"INTEGER NOT NULL,\n")
         append("PRIMARY KEY(\"${_id}\")\n")
         append(");")
-    }
+        }
+        private var sUriMatcher = UriMatcher(UriMatcher.NO_MATCH);
+        init {
+            sUriMatcher.addURI(PROVIDER_NAME, "Inventory", INVENTORY);
+            sUriMatcher.addURI(PROVIDER_NAME, "Inventory/#", ITEM_ID);
+        }
     }
 
-    private var sUriMatcher = UriMatcher(UriMatcher.NO_MATCH);
-    init
-    {
-        sUriMatcher.addURI(PROVIDER_NAME, "students", INVENTORY);
-        sUriMatcher.addURI(PROVIDER_NAME, "students/#", ITEM_ID);
-    }
+
 
     private var db: SQLiteDatabase? = null
 
@@ -66,35 +67,31 @@ class InventoryProvider : ContentProvider(){
     }
 
         override fun onCreate(): Boolean {
-    val context = context
-    val dbHelper = DatabaseHelper(context)
+            val context = context
+            val dbHelper = DatabaseHelper(context)
 
-    db = dbHelper.writableDatabase
-    return db != null
-
-}
-
-
+            db = dbHelper.writableDatabase
+            return db != null
+        }
+    
     override fun query(
         uri: Uri,
         projection : Array<out String>?,
         selection : String?,
         selectionArgs : Array<out String>?,
-        sortOrder : String?
-    ): Cursor? {
+        sortOrder : String?): Cursor? {
         var sOrder = sortOrder
         val qb = SQLiteQueryBuilder()
         qb.tables = INVENTORY_TABLE_NAME
         when (uriMatcher!!.match(uri)) {
             ITEM_ID -> qb.appendWhere(_id + "=" + uri.pathSegments[1])
-            else -> { null
-            }
+            else -> {null}
         }
         if (sortOrder == null || sortOrder === "") {
             /*** By default sort on name*/
             sOrder = name
         }
-        val c = qb.query(db, projection, selection, selectionArgs, null, null, sortOrder)
+        val c = qb.query(db, projection, selection, selectionArgs, null, null, sOrder)
         /**
          * register to watch a content URI for changes  */
         c.setNotificationUri(context!!.contentResolver, uri)
@@ -102,11 +99,16 @@ class InventoryProvider : ContentProvider(){
 
     }
 
-    override fun getType(p0: Uri): String? {
-        TODO("Not yet implemented")
+    override fun getType(uri: Uri): String? {
+        when (uriMatcher!!.match(uri)) {
+            INVENTORY -> return "vnd.android.cursor.dir/vnd.example.inventory"
+            ITEM_ID -> return "vnd.android.cursor.item/vnd.example.inventory"
+            else -> throw IllegalArgumentException("Unsupported URI: $uri")
+        }
     }
 
-    override fun insert(uri: Uri, values: ContentValues?): Uri? {
+
+        override fun insert(uri: Uri, values: ContentValues?): Uri? {
         val rowID = db!!.insert(INVENTORY_TABLE_NAME, "", values)
         /**
          * If record is added successfully

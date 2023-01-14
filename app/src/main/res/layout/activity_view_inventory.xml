@@ -7,8 +7,26 @@
     tools:context=".ViewInventory">
 
     <ListView
+        android:id="@+id/inventoryLV"
         android:layout_width="378dp"
         android:layout_height="521dp"
-        tools:layout_editor_absoluteX="17dp"
-        tools:layout_editor_absoluteY="88dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TVIV"
+        android:layout_width="249dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/inventory_view"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/inventoryLV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

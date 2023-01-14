@@ -6,85 +6,109 @@
     android:layout_height="wrap_content">
 
 
-    <TextView
-        android:id="@+id/TVb3"
-        android:layout_width="179dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="9dp"
-        android:text="Enter Product name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qtyChangeET3" />
-
     <EditText
-        android:id="@+id/qtyChangeET3"
-        android:layout_width="351dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="13dp"
+        android:id="@+id/ddf_pnameET"
+        android:layout_width="350dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="24dp"
         android:ems="10"
-        android:inputType="number"
+        android:hint="@string/item_name"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="ID"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVc3" />
+        app:layout_constraintTop_toBottomOf="@+id/TVb3" />
 
     <TextView
         android:id="@+id/TVc3"
         android:layout_width="167dp"
         android:layout_height="37dp"
-        android:layout_marginTop="148dp"
-        android:text="Enter change in quantity"
+        android:layout_marginTop="92dp"
+        android:text="@string/enter_product_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.479"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/pnameET3"
-        android:layout_width="350dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="24dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Name"
+    <TextView
+        android:id="@+id/TVb3"
+        android:layout_width="179dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/enter_product_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TVb3" />
+        app:layout_constraintTop_toBottomOf="@+id/ddf_pidET" />
+
+    <EditText
+        android:id="@+id/ddf_pidET"
+        android:layout_width="351dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="number"
+        android:minHeight="48dp"
+        android:hint="@string/item_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TVc3" />
 
     <TextView
         android:id="@+id/Warning"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Warning: Deleting an item will remove it, and all associated information from the database. Please only do this if you are positive that the item is no longer necessary"
+        android:text="@string/Warning"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/TVc3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/btCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="392dp"
-        android:text="Cancel"
-        app:layout_constraintEnd_toStartOf="@+id/btConfirm"
-        app:layout_constraintHorizontal_bias="0.536"
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="340dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="80dp"
-        android:text="Confirm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <Space
+            android:layout_width="37dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="@string/cancel" />
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="120dp"
+            android:layout_height="58dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/confirm" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

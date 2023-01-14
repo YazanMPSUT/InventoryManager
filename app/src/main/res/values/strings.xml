@@ -1,7 +1,15 @@
 <resources>
     <string name="app_name">InventoryManager</string>
-    <string name="buy_items">Buy Items</string>
+    <string name="buy_items">Buy New Items</string>
     <string name="manage_inventory">Manage Inventory</string>
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="inventory_view">Inventory View</string>
+    <string name="item_name">Item Name</string>
+    <string name="enter_product_id">Enter Product ID</string>
+    <string name="enter_product_name">Enter Product Name</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="Warning">Warning: Deleting an item will remove it, and all associated information from the database. Please only do this if you are positive that the item is no longer necessary</string>
+    <string name="item_id">Item ID</string>
 </resources>
