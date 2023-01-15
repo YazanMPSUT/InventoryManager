@@ -6,7 +6,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import android.content.ContentValues
+import android.content.ContentResolver
+import androidx.appcompat.app.AppCompatActivity
 import java.security.Provider
+import android.content.*
+import java.nio.file.Files.delete
+
 
 class DeleteDialogFragment : DialogFragment(R.layout.dialogfragment_delete){
 
@@ -18,7 +24,7 @@ class DeleteDialogFragment : DialogFragment(R.layout.dialogfragment_delete){
         btCancel.setOnClickListener {
             dismiss()
         }
-        val ddl_ip = InventoryProvider()
+
 
         btConfirm.setOnClickListener {
             val idET :EditText = view.findViewById(R.id.ddf_pidET)
@@ -26,26 +32,10 @@ class DeleteDialogFragment : DialogFragment(R.layout.dialogfragment_delete){
             val id = idET.text.toString()
             val name = nameET.text.toString()
 
-            try {
-                ddl_ip.delete(
-                    InventoryProvider.CONTENT_URI,
-                    InventoryProvider._id + " = " + id + " AND " +
-                            InventoryProvider.name + " = " + name, null
-                )
-                Toast.makeText(context,"Item \"$name\" with id = $id has successfully been removed",
-                    Toast.LENGTH_LONG).show()
-            }
-            catch(e:java.lang.Exception)
-            {
-                Toast.makeText(context,"ya fucked up", Toast.LENGTH_LONG).show()
-                e.printStackTrace()
-            }
-            finally {
-                dismiss()
+            val caller :ManageInventory = getActivity() as ManageInventory
+            caller.receiveAndDelete(id,name)
+            dismiss()
             }
         }
 
     }
-
-
-}

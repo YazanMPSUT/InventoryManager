@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.example.inventorymanager.MainActivity.Companion
-import com.example.inventorymanager.MainActivity.Companion.salesTotal
 
 class AddInventory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +15,8 @@ class AddInventory : AppCompatActivity() {
 
 
         btnAdd.setOnClickListener {
-            val pnameET : EditText = findViewById(R.id.pnameET)
-            val pidET : EditText = findViewById(R.id.pidET)
+            val pnameET : EditText = findViewById(R.id.ETpid)
+            val pidET : EditText = findViewById(R.id.ETqty)
             val bpET : EditText = findViewById(R.id.bpET)
             val spET : EditText = findViewById(R.id.spET)
             val snET : EditText = findViewById(R.id.snET)
@@ -41,8 +39,9 @@ class AddInventory : AppCompatActivity() {
 
             try{
             val uri = contentResolver.insert(InventoryProvider.CONTENT_URI,values)
-            Toast.makeText(baseContext, uri.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(baseContext, "Success", Toast.LENGTH_LONG).show()
             }
+
             catch (e:java.lang.IllegalArgumentException)
             {
                 e.printStackTrace()

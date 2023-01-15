@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQueryBuilder
 import android.net.Uri
 import android.text.TextUtils
+import android.widget.Toast
 import java.lang.IllegalArgumentException
 import java.util.HashMap
 
@@ -19,12 +20,12 @@ class InventoryProvider : ContentProvider(){
         val CONTENT_URI = Uri.parse(URL)
 
         //Columns
-        val _id="id";
-        val name="name";
-        val buy_price="buy_price";
-        val sell_price="sell_price";
-        val supplier="supplier";
-        val quantity="quantity";
+        val _id="id"
+        val name="name"
+        val buy_price="buy_price"
+        val sell_price="sell_price"
+        val supplier="supplier"
+        val quantity="quantity"
 
         private val INVENTORY_PROJECTION_MAP: HashMap<String, String>? = null
         const val INVENTORY = 1
@@ -52,8 +53,6 @@ class InventoryProvider : ContentProvider(){
 
     }
 
-
-
     private var db: SQLiteDatabase? = null
 
     private class DatabaseHelper internal constructor(context: Context?) :
@@ -76,8 +75,8 @@ class InventoryProvider : ContentProvider(){
     
     override fun query(
         uri: Uri,
-        projection : Array<out String>?,
-        selection : String?,
+        columns : Array<out String>?,
+        where : String?,
         selectionArgs : Array<out String>?,
         sortOrder : String?): Cursor? {
         var sOrder = sortOrder
@@ -91,7 +90,7 @@ class InventoryProvider : ContentProvider(){
             /*** By default sort on name*/
             sOrder = name
         }
-        val c = qb.query(db, projection, selection, selectionArgs, null, null, sOrder)
+        val c = qb.query(db, columns, where, selectionArgs, null, null, sOrder)
         /**
          * register to watch a content URI for changes  */
         c.setNotificationUri(context!!.contentResolver, uri)
@@ -109,6 +108,7 @@ class InventoryProvider : ContentProvider(){
 
 
         override fun insert(uri: Uri, values: ContentValues?): Uri? {
+
         val rowID = db!!.insert(INVENTORY_TABLE_NAME, "", values)
         /**
          * If record is added successfully
@@ -118,7 +118,8 @@ class InventoryProvider : ContentProvider(){
             context!!.contentResolver.notifyChange(_uri, null)
             return _uri
         }
-        throw SQLException("Failed to add a record into $uri")
+            Toast.makeText(context,"Failed to add a record into $uri",Toast.LENGTH_LONG).show()
+            return null
 
     }
 
@@ -138,7 +139,7 @@ class InventoryProvider : ContentProvider(){
                     selectionArgs
                 )
             }
-            else -> throw IllegalArgumentException("Unknown URI $uri")
+            else -> throw IllegalArgumentException("Is it here? Unknown URI $uri")
         }
         context!!.contentResolver.notifyChange(uri, null)
         return count

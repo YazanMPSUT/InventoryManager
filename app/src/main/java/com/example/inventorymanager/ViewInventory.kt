@@ -13,7 +13,7 @@ class ViewInventory : AppCompatActivity() {
         val cols = listOf<String>("","","").toTypedArray()
         val LVIntDB : ListView = findViewById(R.id.inventoryLV)
         //TODO: All of this
-        val from = listOf<String>("","").toTypedArray()
+      /*  val from = listOf<String>("","").toTypedArray()
         val to = intArrayOf(android.R.id.text1,android.R.id.text2)
         val rs = contentResolver.query(
             ContactsContract.CommonDataKinds.Phone.CONTENT_URI ,
@@ -28,10 +28,8 @@ class ViewInventory : AppCompatActivity() {
             from,
             to,
             0
-        )
-        //TODO: All of this
-
-        LVIntDB.adapter = adapter
+        )*/
+        LVIntDB.adapter = null
 
     }
 }

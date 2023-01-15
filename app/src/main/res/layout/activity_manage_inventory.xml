@@ -8,7 +8,7 @@
 
 
     <EditText
-        android:id="@+id/pnameET"
+        android:id="@+id/ETpid"
         android:layout_width="290dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -27,7 +27,8 @@
         android:layout_width="179dp"
         android:layout_height="41dp"
         android:text="Enter Product ID"
-        app:layout_constraintBottom_toTopOf="@+id/pnameET"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/ETpid"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,11 +43,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pnameET"
+        app:layout_constraintTop_toBottomOf="@+id/ETpid"
         app:layout_constraintVertical_bias="0.074" />
 
     <EditText
-        android:id="@+id/pidET"
+        android:id="@+id/ETqty"
         android:layout_width="290dp"
         android:layout_height="52dp"
         android:ems="10"
@@ -69,7 +70,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pidET"
+        app:layout_constraintTop_toBottomOf="@+id/ETqty"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
@@ -94,11 +95,11 @@
         app:layout_constraintBottom_toTopOf="@+id/btnShowDelFrag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pidET"
+        app:layout_constraintTop_toBottomOf="@+id/ETqty"
         app:layout_constraintVertical_bias="0.0">
 
         <Button
-            android:id="@+id/addBtn"
+            android:id="@+id/btnAddQty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add" />
@@ -109,7 +110,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/subBtn"
+            android:id="@+id/btnSubQty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Subtract" />

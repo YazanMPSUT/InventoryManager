@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+<!--    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" /> -->
 
-   <!-- <queries>
+   <queries>
         <provider android:authorities="com.example.Inventory"
-            android:exported="true" />
+            android:exported="false" />
         <package android:name="com.example.inventorymanager"/>
-    </queries> -->
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -19,7 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.InventoryManager"
-        tools:targetApi="29">
+        tools:targetApi="32">
+
+        <provider
+            android:authorities="com.example.inventorymanager.InventoryProvider"
+            android:name="InventoryProvider" />
 
         <activity
             android:name=".MainActivity"
@@ -59,10 +63,7 @@
                 android:value="" />
         </activity>
 
-        <provider
-            android:authorities="com.example.inventorymanager"
-            android:name=".InventoryProvider"
-            android:exported="false" />
+
     </application>
 
 </manifest>
