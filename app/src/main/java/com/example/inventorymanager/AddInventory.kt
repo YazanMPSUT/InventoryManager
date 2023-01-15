@@ -40,10 +40,12 @@ class AddInventory : AppCompatActivity() {
             try{
             val uri = contentResolver.insert(InventoryProvider.CONTENT_URI,values)
             Toast.makeText(baseContext, "Success", Toast.LENGTH_LONG).show()
+                MainActivity.cashTotal -= (qty.toInt() * bp.toDouble())
             }
 
             catch (e:java.lang.IllegalArgumentException)
             {
+                Toast.makeText(baseContext, "Missing field or duplicate ID", Toast.LENGTH_LONG).show()
                 e.printStackTrace()
             }
         }
