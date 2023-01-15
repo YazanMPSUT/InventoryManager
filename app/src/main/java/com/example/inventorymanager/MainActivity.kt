@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat.startActivity
 
 class MainActivity : AppCompatActivity() {
     companion object {
-        var salesTotal: Double = 0.0
+        var cashTotal: Double = 50000.0
     }
     override fun onCreate(savedInstanceState: Bundle?) {
 

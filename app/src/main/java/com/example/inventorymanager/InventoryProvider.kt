@@ -1,7 +1,6 @@
 package com.example.inventorymanager
 import android.content.*
 import android.database.Cursor
-import android.database.SQLException
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.database.sqlite.SQLiteQueryBuilder
@@ -20,7 +19,7 @@ class InventoryProvider : ContentProvider(){
         val CONTENT_URI = Uri.parse(URL)
 
         //Columns
-        val _id="id"
+        val _id="_id"
         val name="name"
         val buy_price="buy_price"
         val sell_price="sell_price"
