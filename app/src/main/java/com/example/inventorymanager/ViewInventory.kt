@@ -26,6 +26,7 @@ class ViewInventory : AppCompatActivity() {
             InventoryProvider.quantity,
             InventoryProvider._id
         )
+
         val crs = contentResolver.query(
             InventoryProvider.CONTENT_URI,
             columnsArray,

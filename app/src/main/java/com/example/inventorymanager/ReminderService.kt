@@ -29,7 +29,7 @@ class ReminderService : Service() {
         //do heavy work on a background thread
         val input = intent?.getStringExtra("inputExtra")
         createNotificationChannel()
-        val notificationIntent = Intent(this, MainActivity::class.java)
+        val notificationIntent = Intent(this, ViewInventory::class.java)
 
 
         val pendingIntent = PendingIntent.getActivity(
