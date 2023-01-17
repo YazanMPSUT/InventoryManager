@@ -1,15 +1,14 @@
 package com.example.inventorymanager
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
-import android.app.Service
+import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import java.util.*
+
 
 class ReminderService : Service() {
 
@@ -31,16 +30,24 @@ class ReminderService : Service() {
         val input = intent?.getStringExtra("inputExtra")
         createNotificationChannel()
         val notificationIntent = Intent(this, MainActivity::class.java)
+
+
         val pendingIntent = PendingIntent.getActivity(
             this,
-            0, notificationIntent, 0
+            0,
+            notificationIntent,
+            PendingIntent.FLAG_IMMUTABLE
         )
+
+
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("Foreground Service Kotlin Example")
-            .setContentText(input)
+            .setContentTitle("Check Inventory")
+            .setContentText("This is a reminder to check your inventory")
             .setSmallIcon(R.drawable.ic_launcher_foreground)
             .setContentIntent(pendingIntent)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .build()
+
         startForeground(1, notification)
 
         return START_NOT_STICKY
