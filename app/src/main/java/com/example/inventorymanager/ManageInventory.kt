@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import com.example.inventorymanager.MainActivity.Companion.cashTotal
+import com.example.inventorymanager.MainActivity.Companion.CurrentBalance
 
 class ManageInventory : AppCompatActivity() {
     private var ETpid : EditText? = null
@@ -90,9 +90,9 @@ class ManageInventory : AppCompatActivity() {
             }
 
         if (operation == "+")
-            cashTotal += qtyChange.toInt() * priceSell
+            CurrentBalance -= qtyChange.toInt() * priceBuy
         else
-            cashTotal -= qtyChange.toInt() * priceBuy
+            CurrentBalance += qtyChange.toInt() * priceSell
 
         values.put(/* key = */ InventoryProvider.quantity,
             /* value = */ "$qtyNew"
@@ -101,9 +101,13 @@ class ManageInventory : AppCompatActivity() {
         contentResolver.update(InventoryProvider.CONTENT_URI,
             values,
             "${InventoryProvider._id} = ?",Array(1){pid})
+
+        getSharedPreferences("PREFS", MODE_PRIVATE).edit().putString("CurrentBalance",
+            CurrentBalance.toString()).apply()
     }
 
-    fun receiveAndDelete(id:String,name:String) {
+    @SuppressLint("SuspiciousIndentation")
+    fun receiveAndDelete(id:String, name:String) {
 
         val count : Int = contentResolver.delete(
         InventoryProvider.CONTENT_URI,
@@ -112,7 +116,9 @@ class ManageInventory : AppCompatActivity() {
         )
 
         if(count>0)
-        Toast.makeText(this,"Item \"$name\" with id = $id has successfully been removed",
-            Toast.LENGTH_LONG).show()
+          Toast.makeText(this,"Item \"$name\" with id = $id has successfully been removed",
+                Toast.LENGTH_LONG).show()
+        getSharedPreferences("PREFS", MODE_PRIVATE).edit().putString("CurrentBalance",
+            CurrentBalance.toString()).apply()
     }
 }
