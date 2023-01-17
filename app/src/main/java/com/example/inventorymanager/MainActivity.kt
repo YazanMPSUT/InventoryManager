@@ -1,12 +1,14 @@
-package com.example.inventorymanager
+    package com.example.inventorymanager
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import androidx.core.content.ContextCompat.startActivity
+import androidx.*
+import androidx.core.content.ContextCompat
 
-class MainActivity : AppCompatActivity() {
+    class MainActivity : AppCompatActivity() {
     companion object {
         var cashTotal: Double = 50000.0
     }
@@ -32,5 +34,18 @@ class MainActivity : AppCompatActivity() {
             val intentView = Intent(this,ViewInventory::class.java)
             startActivity(intentView)
         }
+
+        startService()
     }
+    fun startService() {
+        val serviceIntent = Intent(this, ReminderService::class.java)
+        serviceIntent.putExtra("inputExtra", "Foreground Service Example in Android")
+        ContextCompat.startForegroundService(this, serviceIntent)
+    }
+
+    fun stopService() {
+        val serviceIntent = Intent(this, ReminderService::class.java)
+        stopService(serviceIntent)
+    }
+
 }
